@@ -1,0 +1,66 @@
+# Font settings
+font-family = JetBrains Mono
+# font-style = Medium
+font-style = Regular
+# font-style = Light
+# font-style-bold = SemiBold
+# font-style-italic = Italic
+# font-style-bold-italic = SemiBold Italic
+background-opacity = 0.8
+font-thicken = false
+
+# https://www.jetbrains.com/lp/mono/#font-family
+# font-style = ExtraBold
+# font-style-bold = ExtraBold
+# font-style-italic = SemiBold Italic
+# font-style-bold-italic = ExtraBold Italic
+
+# font-family = JetBrainsMonoNL Nerd Font Mono
+# font-style = Light
+# font-style-bold = ExtraBold
+# font-style-italic = Italic
+# font-style-bold-italic = default
+
+# font-style = "Light"
+# font-style-bold = "SemiBold"
+# font-style-italic = "Italic"
+# font-style-bold-italic = "SemiBoldItalic"
+
+font-size = 15
+font-synthetic-style = false
+
+# cursor style
+cursor-style = block
+adjust-cursor-height = 6
+cursor-color = #FFA500
+shell-integration-features = no-cursor
+mouse-hide-while-typing = true
+
+# theme
+theme = catppuccin-mocha
+
+# window settings
+window-theme = auto
+window-decoration = true
+macos-titlebar-style = hidden
+window-padding-color = background
+window-padding-x = 7,0
+window-padding-y = 0,0
+window-padding-balance = false
+
+# adjust-cell
+adjust-cell-height = 8
+adjust-cell-width = 0
+
+# keymaps
+macos-option-as-alt = left
+
+
+# keybinds
+keybind = super+shift+i=inspector:toggle
+keybind = super+shift+r=reload_config
+
+
+# Shadder
+# custom-shader = shadders/bloom025.glsl
+# custom-shader = shadders/bloom050.glsl

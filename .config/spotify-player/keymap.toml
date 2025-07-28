@@ -1,0 +1,9 @@
+[[keymaps]]
+command = "PageSelectNextOrScrollDown"
+key_sequence = "C-d"
+
+[[keymaps]]
+command = "PageSelectPreviousOrScrollUp"
+key_sequence = "C-u"
+
+

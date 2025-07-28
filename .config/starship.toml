@@ -1,0 +1,275 @@
+add_newline = false
+# A minimal left prompt
+format = """$directory$os$line_break$character"""
+palette = "catppuccin_mocha"
+# move the rest of the prompt to the right
+right_format = """$all"""
+command_timeout = 500
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[line_break]
+disabled = false
+
+
+[git_branch]
+symbol = " "
+format = '[ $symbol$branch ]($style)'
+
+[aws]
+format = '[$symbol(profile: "$profile" )(\(region: $region\) )]($style)'
+disabled = false
+style = 'bold blue'
+symbol = " "
+
+[golang]
+format = '[ $version](bold sky)'
+
+[kubernetes]
+symbol = '☸ '
+disabled = true
+detect_files = ['Dockerfile']
+format = '[$symbol$context( \($namespace\))]($style) '
+contexts = [
+  { context_pattern = "arn:aws:eks:us-west-2:577926974532:cluster/zd-pvc-omer", style = "green", context_alias = "omerxx", symbol = " " },
+]
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
+
+
+[username]
+show_always = false
+format = '[ elliot]($style)'
+
+
+#other symbol
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[crystal]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[directory]
+read_only = " 󰌾"
+format = "[ $path ](bold sky)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[fennel]
+symbol = " "
+
+[fossil_branch]
+symbol = " "
+
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[java]
+format = '[ $symbol( $version) ](bold red)'
+symbol = " "
+
+
+[julia]
+symbol = " "
+
+[kotlin]
+symbol = " "
+
+[lua]
+format = '[ $symbol( $version) ]($style)'
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+[meson]
+symbol = "󰔷 "
+
+[nim]
+symbol = "󰆥 "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+format = '[ $symbol( $version) ](bold green)'
+symbol = " "
+
+[ocaml]
+symbol = " "
+
+[os]
+disabled = false
+format = '[$symbol](peach)'
+
+[os.symbols]
+# Alpaquita = " "
+# Alpine = " "
+# AlmaLinux = " "
+# Amazon = " "
+# Android = " "
+# Arch = " "
+# Artix = " "
+# CentOS = " "
+# Debian = " "
+# DragonFly = " "
+# Emscripten = " "
+# EndeavourOS = " "
+# Fedora = " "
+# FreeBSD = " "
+# Garuda = "󰛓 "
+# Gentoo = " "
+# HardenedBSD = "󰞌 "
+# Illumos = "󰈸 "
+# Kali = " "
+# Linux = " "
+# Mabox = " "
+# Macos = " "
+# Manjaro = " "
+# Mariner = " "
+# MidnightBSD = " "
+# Mint = " "
+# NetBSD = " "
+# NixOS = " "
+# OpenBSD = "󰈺 "
+# openSUSE = " "
+# OracleLinux = "󰌷 "
+# Pop = " "
+# Raspbian = " "
+# Redhat = " "
+# RedHatEnterprise = " "
+# RockyLinux = " "
+# Redox = "󰀘 "
+# Solus = "󰠳 "
+# SUSE = " "
+# Ubuntu = " "
+# Unknown = " "
+# Void = " "
+# Windows = "󰍲 "
+
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+# Macos = ""
+Macos = "󰮠"
+# Macos = "󱡝"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+
+[package]
+symbol = "󰏗 "
+disabled = true
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[pijul_channel]
+symbol = " "
+
+[python]
+format = '[ $symbol( $version) ](bold yellow)'
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+format = '[ $symbol( $version) ]($style)'
+symbol = "󱘗 "
+
+[scala]
+symbol = " "
+
+[swift]
+format = '[ $symbol( $version) ]($style)'
+symbol = " "
+
+[zig]
+symbol = " "
+
+[character]
+disabled = false
+success_symbol = '[❯](bold pink)'
+error_symbol = '[󱠿](bold red)'
+vimcmd_symbol = "[](bold green)"
