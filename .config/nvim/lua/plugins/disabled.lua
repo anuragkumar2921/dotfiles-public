@@ -12,15 +12,23 @@ return {
 		enabled = false,
 	},
 	{
-		"nvim-lualine/lualine.nvim",
-		enabled = true,
+		"folke/todo-comments.nvim",
+		enabled = false,
 	},
 	{
 		"folke/noice.nvim",
 		enabled = true,
 	},
 	{
-		"tjdevries/express_line.nvim",
+		"folke/which-key.nvim",
+		enabled = true,
+	},
+	{
+		"folke/flash.nvim",
 		enabled = false,
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		enabled = true,
 	},
 }

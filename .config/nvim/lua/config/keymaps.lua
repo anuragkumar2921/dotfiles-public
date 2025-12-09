@@ -58,3 +58,16 @@ keymap.set(
 	"<cmd>tab split | lua vim.lsp.buf.definition()<CR>",
 	{ desc = "Open defination in new tab" }
 )
+keymap.set("n", "<leader>mb", "i**<Esc>A**<Esc>", { desc = "Make line bold" })
+keymap.set("v", "<leader>mb", "c****<Esc>hP", { desc = "Make selection bold" })
+
+-- remap to nothing
+vim.keymap.set("n", "<S-h>", "<Nop>", { noremap = true })
+vim.keymap.set("n", "<S-l>", "<Nop>", { noremap = true })
+vim.keymap.set("n", "<leader>,", "<Nop>", { noremap = true })
+vim.keymap.set({ "n", "x" }, "s", "<Nop>", { noremap = true, silent = true })
+
+-- setting default terminal keymaps
+vim.keymap.set({ "n", "t" }, "<c-_>", function()
+	Snacks.terminal.toggle()
+end, { desc = "Toggle Terminal" })
