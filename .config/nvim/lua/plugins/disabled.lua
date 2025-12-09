@@ -31,4 +31,12 @@ return {
 		"nvim-lualine/lualine.nvim",
 		enabled = true,
 	},
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		enabled = false,
+	},
+	{
+		"ibhagwan/fzf-lua",
+		enabled = false,
+	},
 }

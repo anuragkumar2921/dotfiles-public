@@ -32,6 +32,23 @@ return {
 					height = 0.9,
 				},
 			},
+			picker = {
+				sources = {
+					explorer = {
+						layout = {
+							auto_hide = { "input" },
+						},
+					},
+				},
+				win = {
+					input = {
+						keys = {
+							["<S-j>"] = { "preview_scroll_down", mode = { "i", "n" } },
+							["<S-k>"] = { "preview_scroll_up", mode = { "i", "n" } },
+						},
+					},
+				},
+			},
 		},
 	},
 }
