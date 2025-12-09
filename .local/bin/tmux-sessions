@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+get_sorted_sessions() {
+  current_session=$(tmux display-message -p '#S')
+  last_session=$(tmux display-message -p '#{client_last_session}')
+
+  # Get all sessions except current and last session
+  sessions=$(tmux list-sessions -F "#S" 2>/dev/null | grep -Fxv "$last_session" | grep -Fxv "$current_session")
+
+  # Add last session at bottom only if it's not the current session
+  if [[ "$last_session" != "$current_session" ]]; then
+    sessions="$sessions"$'\n'"$last_session"
+  fi
+
+  echo "$sessions" | awk 'NF && !seen[$0]++'
+}
+
+# Show existing sessions (excluding current) and allow typing new names
+selected=$(get_sorted_sessions | fzf --color=bg:-1 --print-query | tail -n1)
+
+# Exit if nothing selected/typed
+if [[ -z $selected ]]; then
+  exit 0
+fi
+
+# Create session if it doesn't exist
+if ! tmux has-session -t="$selected" 2>/dev/null; then
+  tmux new-session -ds "$selected"
+fi
+
+# Switch to the session
+tmux switch-client -t "$selected"

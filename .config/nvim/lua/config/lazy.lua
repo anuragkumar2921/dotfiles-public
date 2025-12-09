@@ -15,6 +15,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	ui = {
+		border = "rounded",
+	},
 	spec = {
 		-- add LazyVim and import its plugins
 		{
@@ -46,7 +49,7 @@ require("lazy").setup({
 			-- disable some rtp plugins
 			disabled_plugins = {
 				"gzip",
-				-- "matchit",
+				"matchit",
 				-- "matchparen",
 				"netrwPlugin",
 				"tarPlugin",

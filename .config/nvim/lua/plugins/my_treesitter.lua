@@ -7,5 +7,6 @@ return {
 			"css",
 			"scss",
 		})
+		return opts
 	end,
 }

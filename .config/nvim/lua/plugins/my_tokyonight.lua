@@ -1,12 +1,10 @@
 return {
-	"catppuccin/nvim",
-	name = "catppuccin",
-	priority = 1000,
+	"tokyonight.nvim",
 	opts = {
-		flavour = "mocha",
-		transparent_background = true,
-		float = {
-			transparent = true,
+		transparent = true,
+		styles = {
+			sidebars = "transparent",
+			floats = "transparent",
 		},
 		custom_highlights = function(colors)
 			return {

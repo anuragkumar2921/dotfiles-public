@@ -21,6 +21,14 @@ disabled = false
 symbol = " "
 format = '[ $symbol$branch ]($style)'
 
+[git_status]
+stashed = ''
+staged = '[  $count ](green)'
+untracked = '[  $count ](mauve)'
+# modified = '[  $count ](yellow)'
+modified = '[ 󰜥 $count ](yellow)'
+deleted = '[  $count ](red)'
+
 [aws]
 format = '[$symbol(profile: "$profile" )(\(region: $region\) )]($style)'
 disabled = false
@@ -28,7 +36,7 @@ style = 'bold blue'
 symbol = " "
 
 [golang]
-format = '[ $version](bold sky)'
+format = '[  $version ](bold sky)'
 
 [kubernetes]
 symbol = '☸ '
@@ -215,7 +223,7 @@ SUSE = ""
 Raspbian = "󰐿"
 Mint = "󰣭"
 # Macos = ""
-Macos = "󰮠"
+Macos = "󰮠 "
 # Macos = "󱡝"
 Manjaro = ""
 Linux = "󰌽"

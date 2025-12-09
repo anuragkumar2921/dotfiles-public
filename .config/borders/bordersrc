@@ -5,6 +5,7 @@ tokyo_red="0xfff7768e"
 tokyo_blue="0xff7aa2f7"
 tokyo_green="0xff4fd6be"
 tokyo_yellow="0xffffc777"
+tokyo_purple="0xff9d7cd8"
 cat_lavender="0xffb4befe"
 cat_mauve="0xffcba6f7"
 cat_red="0xfff38ba8"
@@ -14,11 +15,12 @@ default_active_color=0xffe2e2e3
 default_inactive_color=0xff414550
 
 options=(
-  active_color="$tokyo_blue"
+  # active_color="glow($tokyo_purple)"
+  active_color="$cat_lavender"
   inactive_color="$default_inactive_color"
-  hidpi=on
+  hidpi=true
   style=round
-  width=4.0
+  width=2.0
   # blacklist="kitty"
 )
 

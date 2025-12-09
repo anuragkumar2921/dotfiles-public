@@ -10,11 +10,11 @@ sudo yabai --load-sa
 ###############################################################################
 
 yabai -m config layout                       bsp
-yabai -m config top_padding                  12
-yabai -m config bottom_padding               12
-yabai -m config left_padding                 12
-yabai -m config right_padding                12
-yabai -m config window_gap                   12
+yabai -m config top_padding                  9
+yabai -m config bottom_padding               9
+yabai -m config left_padding                 9
+yabai -m config right_padding                9
+yabai -m config window_gap                   9
 
 ###############################################################################
 #                               Transparency
@@ -22,21 +22,25 @@ yabai -m config window_gap                   12
 
 yabai -m config window_opacity on
 
-apps_transparent="(Notes|Reminders|Music|Obsidian|Spotify|Postman|Xcode|kitty)"
+apps_transparent="()"
 less_transparent="()"
+# less_transparent="(kitty|Google Chrome)"
 all_transparent="(${apps_transparent}|${less_transparent})"
 
 # For transparent apps
-yabai -m signal --add event=window_focused app="^${apps_transparent}$" action="yabai -m config active_window_opacity 0.84"
-yabai -m signal --add event=window_focused app="^${apps_transparent}$" action="yabai -m config normal_window_opacity 1.0"
+yabai -m signal --add event=window_focused app="^${apps_transparent}$" action="yabai -m config active_window_opacity 0.97"
+yabai -m signal --add event=window_focused app="^${apps_transparent}$" action="yabai -m config normal_window_opacity 0.97"
 
 # For less transparent apps
-yabai -m signal --add event=window_focused app="^${less_transparent}$" action="yabai -m config active_window_opacity 0.94"
-yabai -m signal --add event=window_focused app="^${less_transparent}$" action="yabai -m config normal_window_opacity 1.0"
+yabai -m signal --add event=window_focused app="^${less_transparent}$" action="yabai -m config active_window_opacity 0.97"
+yabai -m signal --add event=window_focused app="^${less_transparent}$" action="yabai -m config normal_window_opacity 0.97"
 
 # Reset for all other apps
 yabai -m signal --add event=window_focused app!="^${all_transparent}$" action="yabai -m config active_window_opacity 1.0"
 yabai -m signal --add event=window_focused app!="^${all_transparent}$" action="yabai -m config normal_window_opacity 1.0"
+
+# yabai -m signal --add event=window_focused app=".*CleanShot X.*" action="yabai -m config active_window_opacity 1.0"
+# yabai -m signal --add event=window_focused app=".*CleanShot X.*" action="yabai -m config normal_window_opacity 1.0"
 
 ###############################################################################
 #                              Excluded apps
@@ -44,11 +48,11 @@ yabai -m signal --add event=window_focused app!="^${all_transparent}$" action="y
 
 # Apps excluded from window management, so you can resize them and move them around
 
-apps_mgoff_normal="(Calculator|System Preferences|System Settings|Activity Monitor|App Store|Software Update|Karabiner-Elements|Finder|QuickTime Player|FaceTime|WallD)"
+apps_mgoff_normal="(Calculator|System Preferences|System Settings|Activity Monitor|App Store|Software Update|Karabiner-Elements|Finder|QuickTime Player|FaceTime|WallD|Safari)"
 yabai -m rule --add app="^${apps_mgoff_normal}$" manage=off
 
 # Exclude problematic apps from being managed:
-yabai -m rule --add app="^(Calculator|Software Update|Dictionary|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor)$" manage=off
+yabai -m rule --add app="^(Calculator|Software Update|Dictionary|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor|qBittorrent|Reminders)$" manage=off
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
