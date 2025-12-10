@@ -26,7 +26,7 @@ zinit light jeffreytse/zsh-vi-mode
 ZVM_ESCAPE_KEYTIMEOUT=0.03
 ZVM_CURSOR_STYLE_ENABLED=false
 ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-zvm_after_init_commands+=('[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh')
+zvm_after_init_commands+=('eval "$(fzf --zsh)"')
 
 # Completions
 # -----------

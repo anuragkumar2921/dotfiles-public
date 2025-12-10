@@ -1,9 +1,6 @@
 # Shell integrations
 # -----------------
 
-# FZF
-eval "$(fzf --zsh)"
-
 # Zoxide (smart cd command)
 eval "$(zoxide init zsh)"
 
