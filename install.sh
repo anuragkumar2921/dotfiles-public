@@ -111,7 +111,7 @@ cd ~
 git clone git@github.com:anuragkumar2921/dotfiles-public.git || {
   echo "Dotfiles repository already exists. Skipping clone."
 }
-cd dotfiles
+cd dotfiles-public/
 
 # Make all zsh files executable
 echo "Making all Zsh files executable..."
