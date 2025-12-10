@@ -30,6 +30,9 @@ fi
 echo "Updating Homebrew..."
 brew update
 
+echo "Tapping required repositories..."
+brew tap koekeishiya/formulae
+
 # List of packages to install, including stow
 packages=(
   "ranger"
@@ -40,7 +43,8 @@ packages=(
   "zoxide"
   "lazygit"
   "bat"
-  "font-jetbrains-mono-nerd-font"
+  "font-jetbrains-mono"
+  "font-hack-nerd-font"
   "tmux"
   "neofetch"
   "fzf"
@@ -67,8 +71,8 @@ packages=(
   "mpd"
   "mpc"
   "ffmpeg"
-  "koekeishiya/formulae/yabai"
-  "koekeishiya/formulae/skhd"
+  "yabai"
+  "skhd"
 )
 
 # Function to check if a package is already installed
@@ -113,12 +117,18 @@ git clone git@github.com:anuragkumar2921/dotfiles-public.git || {
 }
 cd dotfiles-public/
 
-# Make all zsh files executable
-echo "Making all Zsh files executable..."
-find . -name "*.zsh" -type f -exec chmod +x {} \;
+# copy tmux session script
+echo "copying tmux sessions file"
+mkdir -p ~/.local/bin/
+cp .local/bin/tmux-sessions ~/.local/bin/tmux-sessions
+chmod +x ~/.local/bin/tmux-sessions
 
 # Using GNU stow to create symlinks
 stow .
+
+# Make all zsh files executable
+echo "Making all Zsh files executable..."
+find ~/.config -name "*.zsh" -type f -exec chmod +x {} \; 2>/dev/null || true
 
 # Clone tmux plugin manager (tpm) if it doesn’t already exist
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
