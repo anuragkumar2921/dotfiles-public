@@ -50,3 +50,5 @@ export MPD_PORT=6700
 export DOTNET_ROOT="/usr/local/share/dotnet"
 export PATH="$DOTNET_ROOT:$PATH"
 
+# Add .local bin to PATH
+export PATH="$HOME/.local/bin:$PATH"
