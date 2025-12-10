@@ -1,5 +1,5 @@
 # Base directory for zsh config
-ZSH_CONFIG_DIR="$HOME/dotfiles/zsh"
+ZSH_CONFIG_DIR="$HOME/dotfiles-public/zsh"
 
 # Source core files
 source "$ZSH_CONFIG_DIR/plugins.zsh"
