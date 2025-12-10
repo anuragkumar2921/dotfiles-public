@@ -6,3 +6,6 @@ README
 install.sh
 install_log.txt
 LICENSE
+images
+go-install.sh
+dotfiles-public/zsh/
