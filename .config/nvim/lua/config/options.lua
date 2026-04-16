@@ -19,3 +19,5 @@ opt.number = false
 opt.relativenumber = false
 
 -- vim.o.winborder = "rounded"
+
+opt.wrap = true
