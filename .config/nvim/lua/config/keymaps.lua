@@ -58,8 +58,35 @@ keymap.set(
 	"<cmd>tab split | lua vim.lsp.buf.definition()<CR>",
 	{ desc = "Open defination in new tab" }
 )
-keymap.set("n", "<leader>mb", "i**<Esc>A**<Esc>", { desc = "Make line bold" })
-keymap.set("v", "<leader>mb", "c****<Esc>hP", { desc = "Make selection bold" })
+
+keymap.set({ "n", "v" }, "<leader>mb", function()
+	local mode = vim.fn.mode()
+
+	if mode == "n" then
+		-- Normal mode: toggle line bold
+		local line = vim.api.nvim_get_current_line()
+		if line:match("^%*%*") and line:match("%*%*$") then
+			vim.cmd([[s/^\*\*//]])
+			vim.cmd([[s/\*\*$//]])
+		else
+			vim.api.nvim_set_current_line("**" .. line .. "**")
+		end
+	elseif mode == "v" or mode == "V" or mode == "\22" then
+		-- Visual modes (char, line, block)
+		-- Use vim-visual-multi style approach or g@ operator
+		-- For visual-line: wrap each line or the whole selection
+		vim.cmd("normal! \027") -- Escape to normal
+		if mode == "V" then
+			-- Visual-line: surround each selected line
+			vim.cmd("'<,'>s/^/**/")
+			vim.cmd("'<,'>s/$/**/")
+		else
+			-- Visual/Visual-block: use surround or manual wrap
+			vim.cmd("normal! `>a**")
+			vim.cmd("normal! `<i**")
+		end
+	end
+end, { desc = "Toggle bold (line or selection)" })
 
 -- remap to nothing
 vim.keymap.set("n", "<S-h>", "<Nop>", { noremap = true })

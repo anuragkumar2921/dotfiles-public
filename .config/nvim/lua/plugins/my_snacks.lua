@@ -19,12 +19,12 @@ return {
 				},
 			},
 			terminal = {
-				win = {
-					position = "float",
-					border = "rounded",
-					width = 0.6,
-					height = 0.6,
-				},
+				-- win = {
+				-- 	position = "float",
+				-- 	border = "rounded",
+				-- 	width = 0.6,
+				-- 	height = 0.6,
+				-- },
 			},
 			lazygit = {
 				win = {
@@ -47,6 +47,16 @@ return {
 							["<S-k>"] = { "preview_scroll_up", mode = { "i", "n" } },
 						},
 					},
+				},
+			},
+			image = {
+				enabled = true,
+				doc = {
+					enabled = true,
+					inline = true,
+					float = false,
+					max_width = 80,
+					max_height = 40,
 				},
 			},
 		},
