@@ -4,6 +4,10 @@ return {
 		opts = {
 			dashboard = {
 				preset = {
+					keys = {
+						{ icon = " ", key = "s", desc = "Restore Session", section = "session" },
+						{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
+					},
 					header = [[
                                                                                             
 					                                                                                
@@ -49,12 +53,17 @@ return {
 					},
 				},
 			},
+			styles = {
+				snacks_image = {
+					relative = "editor",
+					col = -1,
+				},
+			},
 			image = {
 				enabled = true,
 				doc = {
-					enabled = true,
-					inline = true,
-					float = false,
+					inline = false,
+					float = true,
 					max_width = 80,
 					max_height = 40,
 				},
