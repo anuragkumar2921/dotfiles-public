@@ -15,9 +15,10 @@ vim.g.loaded_python3_provider = 0 -- Disable if not using Python plugins
 vim.g.loaded_perl_provider = 0 -- Disable Perl provider
 vim.g.loaded_ruby_provider = 0 -- Disable Ruby provider
 
-opt.number = false
+opt.number = true
 opt.relativenumber = false
 
 -- vim.o.winborder = "rounded"
 
 opt.wrap = true
+opt.mousemodel = "extend"

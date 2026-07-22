@@ -98,3 +98,43 @@ vim.keymap.set({ "n", "x" }, "s", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "t" }, "<c-_>", function()
 	Snacks.terminal.toggle()
 end, { desc = "Toggle Terminal" })
+
+vim.keymap.set("n", "<leader>mnt", function()
+	local name
+	local line = vim.api.nvim_get_current_line()
+	local col = vim.api.nvim_win_get_cursor(0)[2] + 1 -- 1-indexed
+
+	for s, inner, e in line:gmatch("()%[%[([^%]]+)%]%]()") do
+		if col >= s and col < e then
+			name = inner
+			break
+		end
+	end
+
+	-- fall back to prompt if cursor isn't on a wikilink
+	local function create(n)
+		if not n or n == "" then
+			return
+		end
+		n = n:gsub("%.md$", "")
+		n = n:gsub("|.*$", "")
+
+		local root = vim.fs.root(0, { ".git", ".marksman.toml" }) or vim.fn.getcwd()
+		local dir = root .. "/3 - tags"
+		vim.fn.mkdir(dir, "p")
+
+		local path = dir .. "/" .. n .. ".md"
+		if vim.fn.filereadable(path) == 0 then
+			vim.fn.writefile({ "# " .. n, "" }, path)
+		end
+		vim.cmd.edit(path)
+	end
+
+	if name then
+		create(name)
+	else
+		vim.ui.input({ prompt = "Tag note name: " }, create)
+	end
+end, { desc = "New tag note" })
+
+keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")
