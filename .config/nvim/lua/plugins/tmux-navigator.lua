@@ -1,6 +1,6 @@
 return {
 	"christoomey/vim-tmux-navigator",
-	lazy = false,
+	event = "VeryLazy",
 	init = function()
 		vim.g.tmux_navigator_no_mappings = 1 -- disable ALL built-in mappings
 	end,

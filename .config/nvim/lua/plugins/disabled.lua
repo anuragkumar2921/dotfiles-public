@@ -4,10 +4,6 @@ return {
 		enabled = false,
 	},
 	{
-		"catppuccin/nvim",
-		enabled = true,
-	},
-	{
 		"akinsho/bufferline.nvim",
 		enabled = false,
 	},
@@ -33,10 +29,6 @@ return {
 	},
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		enabled = false,
-	},
-	{
-		"ibhagwan/fzf-lua",
 		enabled = false,
 	},
 }

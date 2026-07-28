@@ -59,34 +59,48 @@ keymap.set(
 	{ desc = "Open defination in new tab" }
 )
 
-keymap.set({ "n", "v" }, "<leader>mb", function()
+local function toggle_wrap(wrapper)
 	local mode = vim.fn.mode()
 
 	if mode == "n" then
-		-- Normal mode: toggle line bold
 		local line = vim.api.nvim_get_current_line()
-		if line:match("^%*%*") and line:match("%*%*$") then
-			vim.cmd([[s/^\*\*//]])
-			vim.cmd([[s/\*\*$//]])
+		local wlen = #wrapper
+		local wrapped = #line >= wlen * 2
+			and line:sub(1, wlen) == wrapper
+			and line:sub(-wlen) == wrapper
+		-- Guard: single * should not match **bold**
+		if wrapped and wrapper == "*" and line:sub(1, 2) == "**" and line:sub(-2) == "**" then
+			wrapped = false
+		end
+
+		if wrapped then
+			vim.api.nvim_set_current_line(line:sub(wlen + 1, -wlen - 1))
 		else
-			vim.api.nvim_set_current_line("**" .. line .. "**")
+			vim.api.nvim_set_current_line(wrapper .. line .. wrapper)
 		end
 	elseif mode == "v" or mode == "V" or mode == "\22" then
-		-- Visual modes (char, line, block)
-		-- Use vim-visual-multi style approach or g@ operator
-		-- For visual-line: wrap each line or the whole selection
-		vim.cmd("normal! \027") -- Escape to normal
+		vim.cmd("normal! \027")
 		if mode == "V" then
-			-- Visual-line: surround each selected line
-			vim.cmd("'<,'>s/^/**/")
-			vim.cmd("'<,'>s/$/**/")
+			vim.cmd("'<,'>s/^/" .. wrapper .. "/")
+			vim.cmd("'<,'>s/$/" .. wrapper .. "/")
 		else
-			-- Visual/Visual-block: use surround or manual wrap
-			vim.cmd("normal! `>a**")
-			vim.cmd("normal! `<i**")
+			vim.cmd("normal! `>a" .. wrapper)
+			vim.cmd("normal! `<i" .. wrapper)
 		end
 	end
+end
+
+keymap.set({ "n", "v" }, "<leader>mb", function()
+	toggle_wrap("**")
 end, { desc = "Toggle bold (line or selection)" })
+
+keymap.set({ "n", "v" }, "<leader>mi", function()
+	toggle_wrap("*")
+end, { desc = "Toggle italic (line or selection)" })
+
+keymap.set({ "n", "v" }, "<leader>ms", function()
+	toggle_wrap("~~")
+end, { desc = "Toggle strikethrough (line or selection)" })
 
 -- remap to nothing
 vim.keymap.set("n", "<S-h>", "<Nop>", { noremap = true })

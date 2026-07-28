@@ -4,7 +4,6 @@ return {
 
 	build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
 	dependencies = {
-		"ibhagwan/fzf-lua",
 		"nvim-lua/plenary.nvim",
 		"MunifTanjim/nui.nvim",
 	},
@@ -12,6 +11,8 @@ return {
 		-- configuration goes here
 		---@type lc.lang
 		lang = "java",
+		---@type lc.picker
+		picker = { provider = nil },
 	},
 	config = function(_, opts)
 		require("leetcode").setup(opts)
