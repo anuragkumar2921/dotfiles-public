@@ -1,0 +1,6 @@
+new_tab config-tweak
+layout tall
+cd ~/.config/
+launch zsh
+focus
+focus_os_window

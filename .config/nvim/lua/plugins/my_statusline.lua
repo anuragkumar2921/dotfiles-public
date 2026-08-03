@@ -1,6 +1,8 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	event = "VeryLazy",
+	event = function()
+		return "LazyFile"
+	end,
 	opts = {
 		options = {
 			component_separators = " ",

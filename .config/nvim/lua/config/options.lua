@@ -22,3 +22,5 @@ opt.relativenumber = false
 
 opt.wrap = true
 opt.mousemodel = "extend"
+
+opt.timeoutlen = 1500

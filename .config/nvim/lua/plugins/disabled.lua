@@ -31,4 +31,12 @@ return {
 		"nvim-neo-tree/neo-tree.nvim",
 		enabled = false,
 	},
+	{
+		"MagicDuck/grug-far.nvim",
+		enabled = false,
+	},
+	{
+		"folke/which-key.nvim",
+		enabled = false,
+	},
 }

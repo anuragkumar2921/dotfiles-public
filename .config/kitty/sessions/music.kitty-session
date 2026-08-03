@@ -1,0 +1,7 @@
+# music session
+new_tab music
+layout tall
+cd ~
+launch /bin/zsh -i -c 'jellyfin'
+focus
+focus_os_window

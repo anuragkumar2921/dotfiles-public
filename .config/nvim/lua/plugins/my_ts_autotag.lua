@@ -1,6 +1,15 @@
 return {
 	"windwp/nvim-ts-autotag",
-	event = "LazyFile",
+	event = function()
+		return {}
+	end,
+	ft = {
+		"html",
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+	},
 	opts = {
 		-- Exclude markdown files from auto-tagging
 		per_filetype = {

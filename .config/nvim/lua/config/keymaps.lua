@@ -65,9 +65,7 @@ local function toggle_wrap(wrapper)
 	if mode == "n" then
 		local line = vim.api.nvim_get_current_line()
 		local wlen = #wrapper
-		local wrapped = #line >= wlen * 2
-			and line:sub(1, wlen) == wrapper
-			and line:sub(-wlen) == wrapper
+		local wrapped = #line >= wlen * 2 and line:sub(1, wlen) == wrapper and line:sub(-wlen) == wrapper
 		-- Guard: single * should not match **bold**
 		if wrapped and wrapper == "*" and line:sub(1, 2) == "**" and line:sub(-2) == "**" then
 			wrapped = false
@@ -152,3 +150,15 @@ vim.keymap.set("n", "<leader>mnt", function()
 end, { desc = "New tag note" })
 
 keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")
+
+local window_cmds = {
+	v = "Split Window Right",
+	s = "Split Window Below",
+	o = "Close Other Windows",
+	q = "Quit Window",
+	x = "Swap Window",
+}
+
+for key, desc in pairs(window_cmds) do
+	vim.keymap.set("n", "<leader>w" .. key, "<C-w>" .. key, { desc = desc })
+end

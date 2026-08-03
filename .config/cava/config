@@ -79,33 +79,34 @@
 # For jack 'source' will be the name of the JACK server to connect to, e.g. 'foobar'. Default: 'default'.
 # README.md contains further information on how to setup CAVA for JACK.
 #
-; method = pulse
-; source = auto
-
-; method = pipewire
-; source = auto
-
-; method = alsa
-; source = hw:Loopback,1
-
-method = fifo
-source = /tmp/mpd.fifo
-
-; method = shmem
-; source = /squeezelite-AA:BB:CC:DD:EE:FF
-
-; method = portaudio
-; source = auto
-
-; method = sndio
-; source = default
-
-; method = oss
-; source = /dev/dsp
-
-; method = jack
-; source = default
-
+# ; method = pulse
+# ; source = auto
+#
+# ; method = pipewire
+# ; source = auto
+#
+# ; method = alsa
+# ; source = hw:Loopback,1
+#
+# method = fifo
+# source = /tmp/mpd.fifo
+#
+# ; method = shmem
+# ; source = /squeezelite-AA:BB:CC:DD:EE:FF
+#
+# ; method = portaudio
+# ; source = auto
+#
+# ; method = sndio
+# ; source = default
+#
+# ; method = oss
+# ; source = /dev/dsp
+#
+# ; method = jack
+# ; source = default
+method = coreaudio
+source = tap
 # The options 'sample_rate', 'sample_bits', 'channels' and 'autoconnect' can be configured for some input methods:
 #   sample_rate: fifo, pipewire, sndio, oss
 #   sample_bits: fifo, pipewire, sndio, oss

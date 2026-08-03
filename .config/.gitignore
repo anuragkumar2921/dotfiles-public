@@ -1,0 +1,12 @@
+*~
+.config/tmux/plugins
+.DS_Store
+cliamp.log
+history.toml
+resume.json
+qBittorrent/
+cava/shaders
+cava/themes
+kitty/__pycache__/
+opencode/
+agents/
